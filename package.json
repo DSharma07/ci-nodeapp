@@ -1,0 +1,27 @@
+{
+  "name": "new-layout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "test": "cross-env NODE_ENV=development mocha --exit --timeout 15000",
+    "coverage": "nyc --reporter=html --reporter=text mocha --exit --timeout 15000"
+  },
+  "keywords": [],
+  "author": "Dheeraj",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.1",
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.3",
+    "nyc": "^15.0.1",
+    "supertest": "^4.0.2"
+  }
+}
