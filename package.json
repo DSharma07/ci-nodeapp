@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "start": "cross-env NODE_ENV=development node src/index.js",
     "test": "cross-env NODE_ENV=development mocha --exit --timeout 15000",
     "coverage": "nyc --reporter=html --reporter=text mocha --exit --timeout 15000"
   },
