@@ -1,22 +1,32 @@
-node {
-    def app
-
+pipeline {
+  agent any
+    
+  tools {nodejs "node"}
+    
+  stages {
+        
     stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-
+      steps {
         checkout scm
+      }
     }
-
+        
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+     
+    stage('Test') {
+      steps {
+         sh 'npm test'
+      }
+    }
+    
     stage('Build image') {
         /* This builds the actual image */
 
         app = docker.build("dheeraj/nodeapp")
-    }
-    
-     stage('Execute tests') {
-       steps {
-           sh 'npm test'
-        }
     }
 
     stage('Test image') {
@@ -25,4 +35,5 @@ node {
             echo "Tests passed"
         }
     }
+  }
 }
