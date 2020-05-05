@@ -25,16 +25,23 @@ pipeline {
     }
     
     stage('Build image') {
-        /* This builds the actual image */
-
-        app = docker.build("dheeraj/nodeapp")
+       steps {
+            echo 'Starting to build docker image'
+            script {
+                app = docker.build("dheeraj/nodeapp")
+            }
+       }
     }
 
     stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
-        }
+        steps {
+            echo 'Testing docker image'
+            script {
+                app.inside {
+                    echo "Testing passed"
+                }
+            }
+       }
     }
   }
 }
