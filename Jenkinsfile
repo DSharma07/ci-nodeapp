@@ -15,7 +15,7 @@ node {
     
      stage('Execute tests') {
        steps {
-           sh 'npm run test'
+           sh 'npm test'
         }
     }
 
