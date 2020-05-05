@@ -12,6 +12,12 @@ node {
 
         app = docker.build("dheeraj/nodeapp")
     }
+    
+     stage('Execute tests') {
+       steps {
+           sh 'npm run test'
+        }
+    }
 
     stage('Test image') {
         
